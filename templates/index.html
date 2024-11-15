@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Base Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-buttons .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: inline-block;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ff5a5f;
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            background-color: #f7f7f7;
+            color: #2575fc;
+            border: 2px solid #2575fc;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 20px;
+        }
+
+        .feature-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #2575fc;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature-card {
+                margin-bottom: 30px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+        <div class="hero">
+            <h1>Save Lives Through Organ Donation</h1>
+            <p>Join our community of donors and make a difference in someone's life.</p>
+            <div class="cta-buttons">
+                <a href="/donorregisterpage" class="btn btn-primary">Register as Donor</a>
+                <a href="/registerpage" class="btn btn-secondary">Request Organ</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-heart"></i>
+                <h3>Donate Organs</h3>
+                <p>Register as a donor and help save lives.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hospital-user"></i>
+                <h3>Request Organs</h3>
+                <p>Submit requests for organ transplants.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Secure Platform</h3>
+                <p>Your information is safe with us.</p>
+            </div>
+        </div>
+</body>
+</html>

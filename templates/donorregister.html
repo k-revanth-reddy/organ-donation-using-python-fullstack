@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>/* Base Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Auth Container */
+        .auth-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .auth-container h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #4caf50;
+            font-weight: 700;
+        }
+        
+        /* Form Styles */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: 1rem;
+        }
+        
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #ced4da;
+            border-radius: 6px;
+            width: 100%;
+            margin-top: 5px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            padding: 12px 30px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 2px solid transparent;
+            margin-top: 20px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+        
+        .auth-link {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        
+        .auth-link a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .auth-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 20px;
+                margin: 15px;
+            }
+        
+            .auth-container h2 {
+                font-size: 1.5rem;
+            }
+        
+            .form-group {
+                font-size: 0.9rem;
+            }
+        
+            .btn-primary {
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="auth-container">
+        <h2>Register</h2>
+        <form action="/donorregister" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="blood_type">Blood Type</label>
+                <select id="blood_type" name="blood_type" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" name="contact" required>
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+        </form>
+        <p class="auth-link">Already have an account? <a href="/donorlogin">Login here</a></p>
+        <p>{{status}}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Donation</title>
+    <style>
+        /* Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container */
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #2575fc;
+        }
+
+        .form-group .btn-submit {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #2575fc;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-group .btn-submit:hover {
+            background-color: #ff5a5f;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Donation</h2>
+        <form action="/adddonation" method="POST">
+            <!-- Organ Type -->
+            <div class="form-group">
+                <label for="organType">Organ Type</label>
+                <select id="organType" name="organType" required>
+                    <option value="">Select Organ</option>
+                    <option value="Kidney">Kidney</option>
+                    <option value="Liver">Liver</option>
+                    <option value="Heart">Heart</option>
+                    <option value="Lung">Lung</option>
+                    <option value="Pancreas">Pancreas</option>
+                    <option value="Intestine">Intestine</option>
+                </select>
+            </div>
+
+            <!-- Donor Name -->
+            <div class="form-group">
+                <label for="donorName">Donor Name</label>
+                <input type="text" id="donorName" name="donorName" required>
+            </div>
+
+            <!-- Donor Age -->
+            <div class="form-group">
+                <label for="donorAge">Donor Age</label>
+                <input type="number" id="donorAge" name="donorAge" min="1" required>
+            </div>
+
+            <!-- Blood Group -->
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group</label>
+                <select id="bloodGroup" name="bloodGroup" required>
+                    <option value="">Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="organType">Image Type</label>
+                <select id="organType" name="image" required>
+                    <option value="">Select Organ</option>
+                    <option value="../static/img/Kidney.png">Kidney</option>
+                    <option value="../static/img/Liver.png">Liver</option>
+                    <option value="../static/img/Heart.png">Heart</option>
+                    <option value="../static/img/Lungs.png">Lung</option>
+                    <option value="../static/img/Pancreas.png">Pancreas</option>
+                    <option value="../static/img/Intestine.png">Intestine</option>
+                </select>
+            </div>
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Submit</button>
+            </div>
+        </form>
+        <p>{{status}}</p>
+    </div>
+</body>
+</html>

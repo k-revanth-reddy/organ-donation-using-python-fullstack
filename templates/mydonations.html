@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Donations</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #6a11cb;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .dashboard-content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .dashboard-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Table */
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: auto;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background-color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        th {
+            background-color: #f2f4f8;
+            font-weight: 700;
+            color: #444;
+        }
+
+        .action-button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .accept-button {
+            background-color: #4caf50;
+        }
+
+        .accept-button:hover {
+            background-color: #43a047;
+        }
+
+        .reject-button {
+            background-color: #f44336;
+        }
+
+        .reject-button:hover {
+            background-color: #e53935;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Donor Dashboard</h1>
+        <div class="nav-links">
+            <a href="/donordashboard">Dashboard</a>
+            <a href="/adddonation">Add Donation</a>
+            <a href="/mydonations">My Donations</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <h2>My Donations</h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Donor Name</th>
+                        <th>Organ Type</th>
+                        <th>Age</th>
+                        <th>Blood Group</th>
+                        <th>Gender</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donation in donations %}
+                        <tr>
+                            <td>{{ donation.donorName }}</td>
+                            <td>{{ donation.organType }}</td>
+                            <td>{{ donation.donorAge }}</td>
+                            <td>{{ donation.bloodGroup }}</td>
+                            <td>{{ donation.gender }}</td>
+                            <td>
+                                <img src="{{ donation.image }}" alt="Image" style="width: 100px; height: auto; border-radius: 5px;">
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6">No donations found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

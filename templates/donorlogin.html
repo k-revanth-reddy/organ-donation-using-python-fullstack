@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Login</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Base Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-buttons .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: inline-block;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ff5a5f;
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            background-color: #f7f7f7;
+            color: #2575fc;
+            border: 2px solid #2575fc;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            opacity: 0.9;
+        }
+
+        /* Login Form Section */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .login-form {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-form h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #2575fc;
+        }
+
+        .form-group .btn-login {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #2575fc;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-group .btn-login:hover {
+            background-color: #ff5a5f;
+        }
+
+        .form-group .forgot-password {
+            display: block;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #2575fc;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .login-container {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Donor Login</h1>
+        <p>Log in to manage your donations and requests.</p>
+    </div>
+
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Donor Login</h2>
+            <form action="/donorlogindata" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-login">Log In</button>
+                </div>
+            </form>
+            <p>{{status}}</p>
+        </div>
+    </div>
+
+</body>
+</html>
