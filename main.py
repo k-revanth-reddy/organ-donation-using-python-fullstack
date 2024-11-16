@@ -97,9 +97,14 @@ def dashboard():
 def userrequests():
     if 'username' not in session:
         return redirect(url_for("userlogin"))
-    requestername=session['username']
-    requestdata=list(requests_db.find_one({"patientname":requestername}))
-    return render_template("myrequests.html",requests=requestdata)
+    
+    requestername = session['username']
+    
+    # Fetch all requests for the current user
+    requestdata = list(requests_db.find({"patientname": requestername}))
+    
+    return render_template("myrequests.html", requests=requestdata)
+
 
 @app.route("/donorlogin")
 def donorlogin():
