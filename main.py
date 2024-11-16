@@ -100,7 +100,6 @@ def userrequests():
     
     requestername = session['username']
     
-    # Fetch all requests for the current user
     requestdata = list(requests_db.find({"patientname": requestername}))
     
     return render_template("myrequests.html", requests=requestdata)
@@ -137,10 +136,10 @@ def donationform():
 
 @app.route("/adddonation", methods=['POST'])
 def adddonation():
-    if 'username' not in session:
+    if 'donorusername' not in session:
         return redirect(url_for("donorlogin"))
     
-    donor_username = session['username']
+    donor_username = session['donorusername']
     organ_type = request.form.get("organType")
     donor_name = request.form.get("donorName")
     donor_age = request.form.get("donorAge")
